@@ -1,0 +1,19 @@
+{
+  "name": "dump-exports",
+  "version": "0.0.1",
+  "description": "Dump named module exports into a Markdown format",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xtuc/dump-exports.git"
+  },
+  "dependencies": {
+    "@babel/traverse": "^7.0.0-beta.32",
+    "@babel/types": "^7.0.0-beta.32",
+    "babylon": "^7.0.0-beta.32"
+  },
+  "author": "Sven Sauleau",
+  "license": "MIT",
+  "bin": {
+    "dump-exports": "./index.js"
+  }
+}
