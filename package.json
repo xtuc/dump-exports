@@ -1,6 +1,6 @@
 {
   "name": "dump-exports",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Dump named module exports into a Markdown format",
   "repository": {
     "type": "git",
