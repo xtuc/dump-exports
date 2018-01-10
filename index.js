@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 const process = require('process');
-const {readFileSync} = require('fs');
+const readFileSync = require('fs').readFileSync;
 
 const traverse = require('@babel/traverse').default;
-const {parse} = require('babylon');
+const parse = require('babylon').parse;
 const t = require('@babel/types');
 
 const filename = process.argv[2];
@@ -14,7 +14,6 @@ const ast = parse(content, {
   sourceType: 'module',
   plugins: ['flow'],
 });
-
 
 let buffer = [];
 
@@ -32,7 +31,7 @@ traverse(ast, {
       }
 
       declaration.declarations.forEach(decl => {
-        const {name} = decl.id;
+        const name = decl.id.name;
 
         let initType = 'Constant';
 
@@ -44,7 +43,7 @@ traverse(ast, {
       })
 
     } else if (t.isFunctionDeclaration(declaration)) {
-      const {name} = declaration.id;
+      const name = declaration.id.name;
 
       buffer.push(`- Constant function \`${name}()\``);
     }
