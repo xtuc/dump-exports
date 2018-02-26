@@ -44,8 +44,17 @@ traverse(ast, {
 
     } else if (t.isFunctionDeclaration(declaration)) {
       const name = declaration.id.name;
+      const params = declaration.params.map(param => {
+        if (t.isIdentifier(param)) {
+          return param.name
+        }
 
-      buffer.push(`- Constant function \`${name}()\``);
+        if (t.isAssignmentPattern(param)) {
+          return param.left.name;
+        }
+      }).join(', ');
+
+      buffer.push(`- function \`${name}(${params})\``);
     }
   }
 })
